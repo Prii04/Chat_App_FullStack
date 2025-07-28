@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.11.0",
-    "@chakra-ui/react": "^3.19.1",
+    "@chakra-ui/react": "^3.21.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "bcryptjs": "^3.0.2",
@@ -20,11 +20,16 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-async-handler": "^1.2.0",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
+    "nodemailer": "^7.0.5",
     "nodemon": "^3.1.10",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

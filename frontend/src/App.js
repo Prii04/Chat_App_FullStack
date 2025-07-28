@@ -1,14 +1,16 @@
-// App.js
-import { ChakraProvider , defaultSystem} from '@chakra-ui/react'
-import Homepage from "./Pages/HomePage"; // Import the HomePage component
+import "./App.css";
+import Homepage from "./Pages/Homepage";
+import { Route } from "react-router-dom";
+import Chatpage from "./Pages/Chatpage";
+import ResetPassword from "./Pages/ResetPassword";
 
 function App() {
   return (
-    <ChakraProvider value={defaultSystem}>
-      <div className="App">
-        <Homepage />
-      </div>
-    </ChakraProvider>
+    <div className="App">
+      <Route path="/" component={Homepage} exact />
+      <Route path="/chats" component={Chatpage} />
+      <Route path="/reset-password/:token" component={ResetPassword} />
+    </div>
   );
 }
 

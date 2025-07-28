@@ -1,73 +1,61 @@
-import { Container, Text, Box, Tabs } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+} from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 
-const HomePage = () => {
+function Homepage() {
+  const history = useHistory();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (user) history.push("/chats");
+  }, [history]);
+
   return (
     <Container maxW="xl" centerContent>
       <Box
-        display="flex"
+        d="flex"
         justifyContent="center"
-        p={4}
+        p={3}
         bg="white"
         w="100%"
-        mt={10}
-        mb={4}
+        m="40px 0 15px 0"
         borderRadius="lg"
         borderWidth="1px"
-        boxShadow="md"
       >
-        <Text fontSize="4xl" fontFamily="Work Sans" color="teal.600">
+        <Text fontSize="4xl" fontFamily="Work sans">
           ChatSphere
         </Text>
       </Box>
-
-      <Box
-        bg="white"
-        w="100%"
-        p={6}
-        borderRadius="lg"
-        borderWidth="1px"
-        boxShadow="md"
-      >
-        <Tabs.Root defaultValue="login" variant="soft-rounded" colorScheme="teal" isFitted>
-          <Tabs.List mb={4}>
-            <Tabs.Trigger
-              value="login"
-              sx={{
-                _selected: {
-                  color: "white",
-                  bg: "teal.500",
-                },
-                mx: 2,
-              }}
-            >
-              Login
-            </Tabs.Trigger>
-            <Tabs.Trigger
-              value="signup"
-              sx={{
-                _selected: {
-                  color: "white",
-                  bg: "teal.500",
-                },
-                mx: 2,
-              }}
-            >
-              Signup
-            </Tabs.Trigger>
-          </Tabs.List>
-
-          <Tabs.Content value="login">
-            <Login />
-          </Tabs.Content>
-          <Tabs.Content value="signup">
-            <Signup />
-          </Tabs.Content>
-        </Tabs.Root>
+      <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
+        <Tabs isFitted variant="soft-rounded">
+          <TabList mb="1em">
+            <Tab>Login</Tab>
+            <Tab>Sign Up</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Login />
+            </TabPanel>
+            <TabPanel>
+              <Signup />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
     </Container>
   );
-};
+}
 
-export default HomePage;
+export default Homepage;

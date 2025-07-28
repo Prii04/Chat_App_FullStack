@@ -1,10 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 
-.App{
+.App {
   min-height: 100vh;
-  display:flex;
+  display: flex;
   background-image: url("./background.png");
-  background-size: cover;
   background-position: center;
-  color:black;
+  background-size: cover;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.281);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Add to your App.css */
+.chat-tools {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+}
+
+.emoji-picker,
+.gif-picker {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  z-index: 100;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.message-gif {
+  max-width: 200px;
+  border-radius: 8px;
+}
+
+.message-text {
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+/* For smooth emoji rendering */
+.message-emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  line-height: 1.5;
+}
+
+/* For better message grouping */
+.sent+.sent,
+.received+.received {
+  margin-top: 2px;
+}
+
+.sent:first-of-type,
+.received:first-of-type {
+  margin-top: 8px;
+}
+
+/* Ensure ScrollableFeed takes full height */
+.scrollable-feed {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.emoji-message {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
 }
